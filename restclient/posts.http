@@ -1,0 +1,39 @@
+@hostname = localhost
+@port = 8000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@authorization = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImV4cCI6MTYyODM1MTAzOX0.Tsho_73I2as4XTBYsEz19XPD9J8uksH5m4FniHT2Cis
+
+### POSTS
+@route=posts
+@slug=1
+
+### index
+GET http://{{host}}/{{route}}
+
+### show
+GET http://{{host}}/{{route}}/{{slug}}
+Authorization: {{authorization}}
+
+
+### store
+POST http://{{host}}/{{route}}
+Content-Type: {{contentType}}
+
+{
+    "title": "test123",
+    "body": "test123",
+    "published": true
+}
+
+### update
+PUT http://{{host}}/{{route}}/{{slug}}
+Content-Type: {{contentType}}
+
+{
+    "title": "test26",
+    "body": "test123",
+    "published": true
+}
+### destroy
+DELETE http://{{host}}/{{route}}/{{slug}}

@@ -1,0 +1,36 @@
+@hostname = localhost
+@port = 8000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+### Users
+@route=users
+@slug=1234
+
+### index
+GET http://{{host}}/{{route}}
+
+### show
+GET http://{{host}}/{{route}}/{{slug}}
+
+### store
+POST http://{{host}}/{{route}}
+Content-Type: {{contentType}}
+
+{
+    "username": "test1",
+    "email": "test1@gmail.com",
+    "password": "test1"
+}
+
+### update
+PUT http://{{host}}/{{route}}/{{slug}}
+Content-Type: {{contentType}}
+
+{
+    "title": "test3333333",
+    "body": "test3333333",
+    "published": true
+}
+### destroy
+DELETE http://{{host}}/{{route}}/{{slug}}

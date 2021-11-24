@@ -1,0 +1,16 @@
+@hostname = localhost
+@port = 8000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+### Users
+@route=auth
+
+### index
+POST http://{{host}}/{{route}}/login
+Content-Type: {{contentType}}
+
+{
+    "email": "test1@gmail.com",
+    "password": "test1"
+}
